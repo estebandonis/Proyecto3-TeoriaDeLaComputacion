@@ -1,0 +1,26 @@
+ESTADOS = {q0, q1, q2, q3, q4, q5, q6, R}
+ALFABETO DE ENTRADA = {0, 1}
+ALFABETO DE CINTA = {0, 1, B}
+FUNCION DE TRANSICION = {
+    (q0, 1) -> (q1, B, R),
+    (q0, 0) -> (q4, B, R),
+    (q0, B) -> (q6, B, R),
+    (q1, 1) -> (q1, 1, R),
+    (q1, 0) -> (q1, 0, R),
+    (q1, B) -> (q2, B, L),
+    (q2, B) -> (q6, B, R),
+    (q2, 0) -> (R, 0, R),
+    (q2, 1) -> (q3, B, L),
+    (q3, 1) -> (q3, 1, L),
+    (q3, 0) -> (q3, 0, L),
+    (q3, B) -> (q0, B, R),
+    (q4, 1) -> (q4, 1, R),
+    (q4, 0) -> (q4, 0, R),
+    (q4, B) -> (q5, B, L),
+    (q5, B) -> (q6, B, R),
+    (q5, 1) -> (R, 1, R),
+    (q5, 0) -> (q3, B, L)
+}
+ESTADO INICIAL = q0
+SIMBOLO BLANCO = B
+ESTADOS FINALES = {q6}
