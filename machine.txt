@@ -19,7 +19,10 @@ FUNCION DE TRANSICION = {
     (q4, B) -> (q5, B, L),
     (q5, B) -> (q6, B, R),
     (q5, 1) -> (R, 1, R),
-    (q5, 0) -> (q3, B, L)
+    (q5, 0) -> (q3, B, L),
+    (R, 1) -> (R, 1, L),
+    (R, 0) -> (R, 0, L),
+    (R, B) -> (R, B, L)
 }
 ESTADO INICIAL = q0
 SIMBOLO BLANCO = B

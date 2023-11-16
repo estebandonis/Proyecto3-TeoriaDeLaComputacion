@@ -1,22 +1,4 @@
-"""
-Entrada: (En archivo .txt, .json, .ml, etc)
-    ∗ conjunto de estados Q,
-    ∗ alfabeto input Σ,
-    ∗ alfabeto de cinta Γ,
-    ∗ estado inicial q0,
-    ∗ conjunto de estados de aceptaci ́on F ,
-    ∗ tabla de transiciones (o en su defecto, el listado de 4-tuplas).
-• cadena input w (o cadenas) necesarias para iniciar la simulaci ́on.
-
-Salida:
-• derivacion, paso a paso, de la lectura de w. Para ello puede elegir entre presentarla como derivacion o como secuencia deconfiguraciones instantaneas (visual o desplegado en pantalla). X
-• estado final X
-• cadena final escrita sobre la cinta X
-• flag que indique si w es aceptada o no. X
-"""
-
 def read_file():
-    # Open the file in read mode ('r')
     estados = []
     alfabeto_entrada = []
     alfabeto_cinta = []
@@ -28,7 +10,7 @@ def read_file():
     with open('machine.txt', 'r') as file:
         contador = 0
         for line in file:
-            # Split the line at the '=' character
+
             if "=" not in line:
                 line = line.strip().replace('(', '').replace(')', '').replace(' ', '')
                 value = [tuple(filter(None, v.split(','))) for v in line.split('->')]
@@ -41,12 +23,10 @@ def read_file():
             key = key.strip()
             value = value.strip()
 
-            # Remove the curly braces and split the values at the ',' character
             if '{' in value and '}' in value:
                 value = value.replace('{', '').replace('}', '').replace(' ', '')
                 value = value.split(',')
 
-            # Store the key-value pair in the dictionary
             if key == "ESTADOS":
                 estados = value
             elif key == "ALFABETO DE ENTRADA":
@@ -62,8 +42,6 @@ def read_file():
 
             contador += 1
 
-    # Now 'variables' is a dictionary that contains all the variables and their values
-
     return estados, alfabeto_entrada, alfabeto_cinta, func_transition, estado_inicial, sim_blanco, estados_aceptacion
 
 
@@ -73,7 +51,7 @@ def maquina_turing(estados, alfabeto_entrada, alfabeto_cinta, func_transition, e
     print()
     print("Transiciones:")
 
-    while estado_inicial != "R":
+    while input_actual != 0:
         if estado_inicial in estados_aceptacion:
             flag = True
             break
