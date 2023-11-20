@@ -111,6 +111,7 @@ def main():
 
     # Pedimos la cadena de entrada
     input_user = input("Enter a number: ")
+    print()
 
     # Verificamos que la cadena de entrada sea binaria
     for i in input_user:
