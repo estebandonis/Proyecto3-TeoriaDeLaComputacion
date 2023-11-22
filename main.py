@@ -75,7 +75,7 @@ def maquina_turing(estados, alfabeto_entrada, alfabeto_cinta, func_transition, e
     print("Transiciones:")
 
     # Mientras no lleguemos al inicio de la cinta, seguimos iterando
-    while input_actual != 0:
+    while input_actual != 0 and input_actual != len(w) - 1:
         # Si el estado actual es un estado de aceptación, entonces la cadena es un palíndromo
         if estado_inicial in estados_aceptacion:
             flag = True
