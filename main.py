@@ -86,6 +86,9 @@ def maquina_turing(estados, alfabeto_entrada, alfabeto_cinta, func_transition, e
             transition = func_transition[(estado_inicial, w[input_actual])]
             # Imprimimos la transición
             print("(" + estado_inicial + ", " + w[input_actual] + ")","->", transition)
+            # Imprimimos la cinta
+            print(''.join(w))
+            print()
             # Actualizamos el estado actual y el valor de la cinta
             estado_inicial = transition[0]
             w[input_actual] = transition[1]
