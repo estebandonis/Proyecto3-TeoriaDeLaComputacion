@@ -73,6 +73,10 @@ def maquina_turing(estados, alfabeto_entrada, alfabeto_cinta, func_transition, e
     input_actual = starter
     flag = False
     print("Transiciones:")
+    b = w.copy()
+    b[input_actual-1] = ''.join([c + '\u0332' for c in b[input_actual - 1]])
+    print(''.join(b))
+    print()
 
     # Mientras no lleguemos al inicio de la cinta, seguimos iterando
     while input_actual != 0 and input_actual != len(w) - 1:
@@ -86,9 +90,6 @@ def maquina_turing(estados, alfabeto_entrada, alfabeto_cinta, func_transition, e
             transition = func_transition[(estado_inicial, w[input_actual])]
             # Imprimimos la transición
             print("(" + estado_inicial + ", " + w[input_actual] + ")","->", transition)
-            # Imprimimos la cinta
-            print(''.join(w))
-            print()
             # Actualizamos el estado actual y el valor de la cinta
             estado_inicial = transition[0]
             w[input_actual] = transition[1]
@@ -97,6 +98,11 @@ def maquina_turing(estados, alfabeto_entrada, alfabeto_cinta, func_transition, e
                 input_actual += 1
             else:
                 input_actual -= 1
+            # Imprimimos la cinta
+            a = w.copy()
+            a[input_actual - 1] = ''.join([c + '\u0332' for c in a[input_actual - 1]])
+            print(''.join(a))
+            print()
     
     # Imprimimos valores de salida
     print()
